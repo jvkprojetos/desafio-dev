@@ -3,4 +3,4 @@ using Microsoft.AspNetCore.Http;
 
 namespace DesafioDev.Application.Features.File;
 
-public sealed record UploadFileCommand(IFormFile File) : ICommand<string>;
+public sealed record UploadFileCommand(IFormFile File) : ICommand<object>;
