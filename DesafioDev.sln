@@ -11,15 +11,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DesafioDev.Api", "src\01 -A
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "02 - Application", "02 - Application", "{A4AE4672-D969-427A-9AA3-FCB5996B3977}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesafioDev.Application", "src\02 - Application\DesafioDev.Application\DesafioDev.Application.csproj", "{596DB225-D891-4101-8CA2-A0FE9604055B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DesafioDev.Application", "src\02 - Application\DesafioDev.Application\DesafioDev.Application.csproj", "{596DB225-D891-4101-8CA2-A0FE9604055B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "03 - Domain", "03 - Domain", "{B9F86CD0-EE76-4C45-9E36-DC14265D24FA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesafioDev.Domain", "src\03 - Domain\DesafioDev.Domain\DesafioDev.Domain.csproj", "{56B46EAB-4D1B-4E3A-9185-84A130AED129}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DesafioDev.Domain", "src\03 - Domain\DesafioDev.Domain\DesafioDev.Domain.csproj", "{56B46EAB-4D1B-4E3A-9185-84A130AED129}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "04 - Infra", "04 - Infra", "{3094448B-8B73-4C93-B679-6BA2F303660A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesafioDev.Infra.Persistence", "src\04 - Infra\DesafioDev.Infra.Persistence\DesafioDev.Infra.Persistence.csproj", "{BCC22123-51F6-474D-8ECA-8DC5991931A8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DesafioDev.Infra.Persistence", "src\04 - Infra\DesafioDev.Infra.Persistence\DesafioDev.Infra.Persistence.csproj", "{BCC22123-51F6-474D-8ECA-8DC5991931A8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
