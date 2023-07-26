@@ -6,7 +6,7 @@ using DesafioDev.Domain.Repositories;
 
 namespace DesafioDev.Application.Features.File
 {
-    internal sealed class UploadFileCommandHandler : ICommandHandler<UploadFileCommand, object>
+    internal sealed class UploadFileCommandHandler : ICommandHandler<UploadFileCommand, string>
     {
         readonly IUnitOfWork _unitOfWork;
 
@@ -15,7 +15,7 @@ namespace DesafioDev.Application.Features.File
             _unitOfWork = unitOfWork;
         }
 
-        public async Task<object> Handle(UploadFileCommand request, CancellationToken cancellationToken)
+        public async Task<string> Handle(UploadFileCommand request, CancellationToken cancellationToken)
         {
             ICollection<Establishment> establishments = new List<Establishment>();
             var fileConverted = request.File.ReadAndConvertInListString();
@@ -43,13 +43,11 @@ namespace DesafioDev.Application.Features.File
                 establishments.Add(establishment);
             });
 
-            await _unitOfWork.TransactionRepository.SaveAsync(establishments);
+            await _unitOfWork.EstablishmentRepository.SaveAsync(establishments);
 
             await _unitOfWork.CommitAsync();
 
-            var teste = await _unitOfWork.TransactionRepository.GetAllAsync();
-
-            return establishments;
+            return "Sucesso";
         }
     }
 }

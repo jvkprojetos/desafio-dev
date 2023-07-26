@@ -2,7 +2,8 @@
 {
     public interface IUnitOfWork
     {
-        IEstablishmentRepository TransactionRepository { get; }
+        IEstablishmentRepository EstablishmentRepository { get; set; }
+
         Task CommitAsync();
     }
 }

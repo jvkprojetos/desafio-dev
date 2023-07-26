@@ -7,20 +7,12 @@ internal sealed class UnitOfWork : IUnitOfWork
 {
     private readonly ApplicationDbContext _context;
 
-    private IEstablishmentRepository _transactionRepository;
+    public IEstablishmentRepository EstablishmentRepository { get; set; }
 
-    public UnitOfWork(ApplicationDbContext context)
+    public UnitOfWork(ApplicationDbContext context, IEstablishmentRepository establishmentRepository)
     {
         _context = context;
-    }
-
-    public IEstablishmentRepository TransactionRepository
-    {
-        get 
-        {
-            _transactionRepository ??= new EstablishmentRepository(_context);
-            return _transactionRepository;
-        }
+        EstablishmentRepository = establishmentRepository;
     }
 
     public async Task CommitAsync()
