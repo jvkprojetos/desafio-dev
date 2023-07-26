@@ -21,6 +21,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "04 - Infra", "04 - Infra", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DesafioDev.Infra.Persistence", "src\04 - Infra\DesafioDev.Infra.Persistence\DesafioDev.Infra.Persistence.csproj", "{BCC22123-51F6-474D-8ECA-8DC5991931A8}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{737BB68C-5203-44CB-B2BB-EA755DCCBA3E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesafioDev.Tests", "tests\DesafioDev.Tests\DesafioDev.Tests.csproj", "{6656A02E-83A7-46A8-8F52-527839E1CCDD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -43,6 +47,10 @@ Global
 		{BCC22123-51F6-474D-8ECA-8DC5991931A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BCC22123-51F6-474D-8ECA-8DC5991931A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BCC22123-51F6-474D-8ECA-8DC5991931A8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6656A02E-83A7-46A8-8F52-527839E1CCDD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6656A02E-83A7-46A8-8F52-527839E1CCDD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6656A02E-83A7-46A8-8F52-527839E1CCDD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6656A02E-83A7-46A8-8F52-527839E1CCDD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -56,6 +64,7 @@ Global
 		{56B46EAB-4D1B-4E3A-9185-84A130AED129} = {B9F86CD0-EE76-4C45-9E36-DC14265D24FA}
 		{3094448B-8B73-4C93-B679-6BA2F303660A} = {0CBBB238-01CB-4216-BBEB-14A9CE42D0D3}
 		{BCC22123-51F6-474D-8ECA-8DC5991931A8} = {3094448B-8B73-4C93-B679-6BA2F303660A}
+		{6656A02E-83A7-46A8-8F52-527839E1CCDD} = {737BB68C-5203-44CB-B2BB-EA755DCCBA3E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {72CD8B05-7F09-43D7-BA72-B98AE2D63FEB}
