@@ -1,5 +1,6 @@
 ﻿using DesafioDev.Domain.Repositories;
 using DesafioDev.Infra.Persistence.Repositories;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -14,5 +15,12 @@ public static class DependencyInjection
         services.AddTransient<IUnitOfWork, UnitOfWork>();
         services.AddTransient<IEstablishmentRepository, EstablishmentRepository>();
         return services;
+    }
+
+    public static void RunMigration(this IApplicationBuilder app)
+    {
+        using var provider = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope();
+        using var context = provider.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+        context.Database.Migrate();
     }
 }
