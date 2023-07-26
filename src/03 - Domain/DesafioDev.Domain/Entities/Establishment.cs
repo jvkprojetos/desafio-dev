@@ -32,7 +32,7 @@ public class Establishment
         Owner = new Owner(cpf, name);
     }
 
-    public void AddTransaction(TransactionType type, string date, decimal value, string card, string hour)
+    public void AddTransaction(TransactionType type, DateTime date, decimal value, string card, TimeSpan hour)
     {
         Transactions.Add(new Transaction(type, date, value, card, hour));
     }

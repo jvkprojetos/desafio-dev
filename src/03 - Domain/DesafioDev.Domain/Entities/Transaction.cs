@@ -8,13 +8,13 @@ public class Transaction
 
     public TransactionType Type { get; private set; }
 
-    public string Date { get; private set; }
+    public DateTime Date { get; private set; }
 
     public decimal Value { get; private set; }        
 
     public string Card { get; private set; }
 
-    public string Hour { get; private set; }
+    public TimeSpan Hour { get; private set; }
 
     public virtual Establishment Establishment { get; private set; }
 
@@ -25,7 +25,7 @@ public class Transaction
     {
     }
 
-    public Transaction(TransactionType type, string date, decimal value, string card, string hour)
+    public Transaction(TransactionType type, DateTime date, decimal value, string card, TimeSpan hour)
     {
         Id = Guid.NewGuid();
         SetType(type);
@@ -40,7 +40,7 @@ public class Transaction
         Type = type;
     }
 
-    public void SetDate(string date)
+    public void SetDate(DateTime date)
     {
         Date = date;
     }
@@ -55,7 +55,7 @@ public class Transaction
         Card = card;
     }
 
-    public void SetHour(string hour) 
+    public void SetHour(TimeSpan hour) 
     {
         Hour = hour;
     }

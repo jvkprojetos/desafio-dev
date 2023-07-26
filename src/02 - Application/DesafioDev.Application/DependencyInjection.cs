@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using DesafioDev.Application.Interfaces;
+using DesafioDev.Application.Services;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace DesafioDev.Application;
 
@@ -14,6 +16,8 @@ public static class DependencyInjection
         {
             configuration.RegisterServicesFromAssembly(assembly);
         });
+
+        services.AddScoped<IFileServices, FileServices>();
 
         return services;
     }
