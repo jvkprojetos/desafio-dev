@@ -14,6 +14,6 @@ internal class EstablishmentRepository : IEstablishmentRepository
 
     public async Task SaveAsync(ICollection<Establishment> establishment)
     {
-        await _context.Establishments.AddRangeAsync(establishment);
+        await _context.Establishments.AddRangeAsync(establishment);        
     }
 }

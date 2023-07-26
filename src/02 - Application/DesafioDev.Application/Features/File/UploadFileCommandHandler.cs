@@ -23,6 +23,14 @@ internal sealed class UploadFileCommandHandler : ICommandHandler<UploadFileComma
 
         var establishments = _fileServices.DesserializeValuesForEstablishment(fileConverted);
 
+        if(!establishments.Any())
+        {
+            return new BaseResponse<string>(false, null, new List<Error>
+            {
+                new Error("Ocorreu uma falha ao ler o aquivo, verifique o padrão do documento enviado e tente novamente.")
+            });
+        }
+
         await _unitOfWork.EstablishmentRepository.SaveAsync(establishments);
 
         await _unitOfWork.CommitAsync();

@@ -26,7 +26,7 @@ public class FileController : ControllerBase
         try
         {
             var result = await _sender.Send(_mapper.Map<UploadFileCommand>(uploadFileRequest));
-            return Ok(result);
+            return result.Success ? Ok(result) : BadRequest(result);
         }
         catch(Exception ex)
         {
