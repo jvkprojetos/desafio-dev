@@ -7,7 +7,7 @@ namespace DesafioDev.Application.Helpers
     {
         public static List<string> ReadAndConvertInListString(this IFormFile formFile)
         {
-            string? line;
+            string line;
             List<string> lines = new();
 
             using var streamReader = new StreamReader(formFile.OpenReadStream());  

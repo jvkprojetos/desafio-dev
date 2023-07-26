@@ -1,65 +1,72 @@
 ﻿using DesafioDev.Domain.Enums;
 
-namespace DesafioDev.Domain.Entities
+namespace DesafioDev.Domain.Entities;
+
+public class Transaction
 {
-    public class Transaction
+    public Guid Id { get; private set; }
+
+    public TransactionType Type { get; private set; }
+
+    public string Date { get; private set; }
+
+    public decimal Value { get; private set; }        
+
+    public string Card { get; private set; }
+
+    public string Hour { get; private set; }
+
+    public Establishment Establishment { get; private set; }
+
+    public virtual Guid EstablishmentId { get; private set; }
+
+    public NatureTransactionTypeEnum NatureTransactionType
+        => GetNatureTransactionType();
+
+    public Transaction()
     {
-        public Guid Id { get; private set; }
+    }
 
-        public TransactionType Type { get; private set; }
+    public Transaction(TransactionType type, string date, decimal value, string card, string hour)
+    {
+        Id = Guid.NewGuid();
+        SetType(type);
+        SetDate(date);
+        SetValue(value);
+        SetCard(card);
+        SetHour(hour);
+    }
 
-        public string Date { get; private set; }
+    public void SetType(TransactionType type)
+    {
+        Type = type;
+    }
 
-        public decimal Value { get; private set; }        
+    public void SetDate(string date)
+    {
+        Date = date;
+    }
 
-        public string Card { get; private set; }
+    public void SetValue(decimal value)
+    {
+        Value = value;
+    }
 
-        public TimeSpan Hour { get; private set; }
+    public void SetCard(string card) 
+    {
+        Card = card;
+    }
 
-        public NatureTransactionTypeEnum NatureTransactionType
-            => GetNatureTransactionType();
+    public void SetHour(string hour) 
+    {
+        Hour = hour;
+    }
 
-        public Transaction(TransactionType type, string date, decimal value, string card, TimeSpan hour)
-        {
-            Id = Guid.NewGuid();
-            SetType(type);
-            SetDate(date);
-            SetValue(value);
-            SetCard(card);
-            SetHour(hour);
-        }
+    private NatureTransactionTypeEnum GetNatureTransactionType()
+    {
+        if (Type == TransactionType.Ticket || Type == TransactionType.Financing || Type == TransactionType.Rent)
+            return NatureTransactionTypeEnum.Exit;
 
-        public void SetType(TransactionType type)
-        {
-            Type = type;
-        }
-
-        public void SetDate(string date)
-        {
-            Date = date;
-        }
-
-        public void SetValue(decimal value)
-        {
-            Value = value;
-        }
-
-        public void SetCard(string card) 
-        {
-            Card = card;
-        }
-
-        public void SetHour(TimeSpan hour) 
-        {
-            Hour = hour;
-        }
-
-        private NatureTransactionTypeEnum GetNatureTransactionType()
-        {
-            if (Type == TransactionType.Ticket || Type == TransactionType.Financing || Type == TransactionType.Rent)
-                return NatureTransactionTypeEnum.Exit;
-
-            return NatureTransactionTypeEnum.Entry;
-        }
+        return NatureTransactionTypeEnum.Entry;
     }
 }

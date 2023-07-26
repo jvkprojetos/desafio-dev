@@ -1,10 +1,11 @@
 using DesafioDev.Application;
+using DesafioDev.Infra.Persistence;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 
-builder.Services.AddApplication();
+builder.Services.AddApplication().AddRepositories(builder.Configuration);
 
 builder.Services.AddEndpointsApiExplorer();
 
