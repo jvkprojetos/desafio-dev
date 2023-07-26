@@ -36,4 +36,22 @@ public class Establishment
     {
         Transactions.Add(new Transaction(type, date, value, card, hour));
     }
+
+    public decimal CalculateTotalBalance()
+    {
+        var valueEntry = CalculateTotalEntryValue();
+        var valueExit = CalculateTotalExitValue();
+
+        return valueEntry - valueExit;
+    }
+
+    public decimal CalculateTotalEntryValue()
+    {
+        return Transactions.Where(_ => _.NatureTransactionType == NatureTransactionTypeEnum.Entry).Sum(_ => _.Value);
+    }
+
+    public decimal CalculateTotalExitValue()
+    {
+        return Transactions.Where(_ => _.NatureTransactionType == NatureTransactionTypeEnum.Exit).Sum(_ => _.Value);
+    }
 }

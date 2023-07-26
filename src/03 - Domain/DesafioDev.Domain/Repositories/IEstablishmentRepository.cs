@@ -5,4 +5,6 @@ namespace DesafioDev.Domain.Repositories;
 public interface IEstablishmentRepository
 {
     Task SaveAsync(ICollection<Establishment> establishment);
+
+    Task<IEnumerable<Establishment>> GetAllAsync();
 }
