@@ -31,7 +31,7 @@ internal sealed class UploadFileCommandHandler : ICommandHandler<UploadFileComma
             });
         }
 
-        await _unitOfWork.EstablishmentRepository.SaveAsync(establishments);
+        await _unitOfWork.EstablishmentRepository.SaveRangeAsync(establishments);
 
         await _unitOfWork.CommitAsync();
 

@@ -13,7 +13,7 @@ internal class EstablishmentRepository : IEstablishmentRepository
         _context = context;
     }
 
-    public async Task SaveAsync(ICollection<Establishment> establishment)
+    public async Task SaveRangeAsync(ICollection<Establishment> establishment)
     {
         await _context.Establishments.AddRangeAsync(establishment);        
     }
