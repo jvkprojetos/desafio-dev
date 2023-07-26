@@ -1,4 +1,4 @@
 ﻿namespace DesafioDev.Application.Response
 {
-    public sealed record Error(string message);
+    public sealed record Error(string Message);
 }
