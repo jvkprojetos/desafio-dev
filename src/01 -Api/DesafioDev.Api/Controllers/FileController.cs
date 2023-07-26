@@ -23,7 +23,15 @@ public class FileController : ControllerBase
     [Consumes("multipart/form-data")]
     public async Task<IActionResult> Upload([FromForm] UploadFileRequest uploadFileRequest)
     {
-        var result = await _sender.Send(_mapper.Map<UploadFileCommand>(uploadFileRequest));
-        return Ok(result);
+        try
+        {
+            var result = await _sender.Send(_mapper.Map<UploadFileCommand>(uploadFileRequest));
+            return Ok(result);
+        }
+        catch(Exception ex)
+        {
+            Console.WriteLine(ex.ToString());
+            return StatusCode(500);
+        }
     }
  }

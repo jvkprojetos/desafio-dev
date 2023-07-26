@@ -2,13 +2,12 @@
 using DesafioDev.Application.Features.File;
 using DesafioDev.Application.Requests;
 
-namespace DesafioDev.Application.Mappers
+namespace DesafioDev.Application.Mappers;
+
+public class RequestToCommandMapping : Profile
 {
-    public class RequestToCommandMapping : Profile
+    public RequestToCommandMapping()
     {
-        public RequestToCommandMapping()
-        {
-            CreateMap<UploadFileRequest, UploadFileCommand>();
-        }
+        CreateMap<UploadFileRequest, UploadFileCommand>();
     }
 }

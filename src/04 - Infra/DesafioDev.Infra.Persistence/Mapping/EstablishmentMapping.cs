@@ -15,13 +15,13 @@ public sealed class EstablishmentMapping : IEntityTypeConfiguration<Establishmen
 
         builder.HasOne(_ => _.Owner)
                .WithOne(_ => _.Establishment)
-               .HasForeignKey<Establishment>(_ => _.OwnerId)
+               .HasForeignKey<Establishment>("OwnerId")
                .IsRequired();
 
         builder.HasMany(_ => _.Transactions)
                .WithOne(_ => _.Establishment)                   
-               .HasForeignKey(_ => _.EstablishmentId)
-               .IsRequired(); ;
+               .HasForeignKey("EstablishmentId")
+               .IsRequired();
 
         builder.ToTable("Establishments");
     }

@@ -24,4 +24,8 @@
     <ProjectReference Include="..\..\03 - Domain\DesafioDev.Domain\DesafioDev.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Migrations\" />
+  </ItemGroup>
+
 </Project>

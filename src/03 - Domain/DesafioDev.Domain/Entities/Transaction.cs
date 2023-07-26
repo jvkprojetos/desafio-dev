@@ -16,9 +16,7 @@ public class Transaction
 
     public string Hour { get; private set; }
 
-    public Establishment Establishment { get; private set; }
-
-    public virtual Guid EstablishmentId { get; private set; }
+    public virtual Establishment Establishment { get; private set; }
 
     public NatureTransactionTypeEnum NatureTransactionType
         => GetNatureTransactionType();

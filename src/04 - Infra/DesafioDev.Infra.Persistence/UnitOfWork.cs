@@ -1,5 +1,4 @@
 ﻿using DesafioDev.Domain.Repositories;
-using DesafioDev.Infra.Persistence.Repositories;
 
 namespace DesafioDev.Infra.Persistence;
 

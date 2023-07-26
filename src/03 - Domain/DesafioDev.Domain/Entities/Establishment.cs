@@ -8,9 +8,7 @@ public class Establishment
 
     public string Name { get; private set; }
 
-    public virtual Guid OwnerId { get; private set; }
-
-    public Owner Owner { get; private set; }
+    public virtual Owner Owner { get; private set; }
 
     public virtual ICollection<Transaction> Transactions { get; private set; }
 
