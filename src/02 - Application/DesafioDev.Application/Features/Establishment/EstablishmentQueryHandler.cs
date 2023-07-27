@@ -6,16 +6,16 @@ namespace DesafioDev.Application.Features.Establishment;
 
 public class EstablishmentQueryHandler : IQueryHandler<EstablishmentQuery, IEnumerable<EstablishmentQueryResponse>>
 {
-    readonly IEstablishmentRepository _repository;
+    readonly IUnitOfWork _unitOfWork;
 
-    public EstablishmentQueryHandler(IEstablishmentRepository repository)
+    public EstablishmentQueryHandler(IUnitOfWork unitOfWork)
     {
-        _repository = repository;
+        _unitOfWork = unitOfWork;
     }
 
     public async Task<IEnumerable<EstablishmentQueryResponse>> Handle(EstablishmentQuery request, CancellationToken cancellationToken)
     {
-        var list = await _repository.GetAllAsync();
+        var list = await _unitOfWork.EstablishmentRepository.GetAllAsync();
 
         return list.Select(_ => new EstablishmentQueryResponse(_.Name, 
                                 new OwnerQueryResponse(_.Owner.Cpf, _.Owner.Name), 
