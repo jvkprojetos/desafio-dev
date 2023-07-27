@@ -1,14 +1,17 @@
 ﻿using DesafioDev.Application.Interfaces;
 using DesafioDev.Domain.Entities;
 using DesafioDev.Domain.Enums;
+using Microsoft.AspNetCore.Http;
 using System.Globalization;
 
 namespace DesafioDev.Application.Services;
 
 internal class FileServices : IFileServices
 {
-    public ICollection<Establishment> DesserializeValuesForEstablishment(List<string> lines)
+    public ICollection<Establishment> DesserializeValuesForEstablishment(IFormFile formFile)
     {
+        var lines = ReadAndConvertInListString(formFile);
+
         ICollection<Establishment> establishments = new List<Establishment>();
 
         foreach (var line in lines)
@@ -42,7 +45,21 @@ internal class FileServices : IFileServices
 
         return establishments;
     }
-       
+
+    private static List<string> ReadAndConvertInListString(IFormFile formFile)
+    {
+        string line;
+        List<string> lines = new();
+
+        using var streamReader = new StreamReader(formFile.OpenReadStream());
+        while ((line = streamReader.ReadLine()) is not null)
+        {
+            lines.Add(line);
+        }
+
+        return lines;
+    }
+
     private static bool GetInvalidLine(string line)
     {
         return line.Length == 80;

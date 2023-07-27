@@ -1,5 +1,4 @@
 ﻿using DesafioDev.Application.Abstractions.Command;
-using DesafioDev.Application.Helpers;
 using DesafioDev.Application.Interfaces;
 using DesafioDev.Application.Response;
 using DesafioDev.Domain.Repositories;
@@ -19,9 +18,7 @@ internal sealed class UploadFileCommandHandler : ICommandHandler<UploadFileComma
 
     public async Task<BaseResponse<string>> Handle(UploadFileCommand request, CancellationToken cancellationToken)
     {
-        var fileConverted = request.File.ReadAndConvertInListString();
-
-        var establishments = _fileServices.DesserializeValuesForEstablishment(fileConverted);
+        var establishments = _fileServices.DesserializeValuesForEstablishment(request.File);
 
         if(!establishments.Any())
         {
