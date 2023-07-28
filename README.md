@@ -1,31 +1,30 @@
 
 # Desafio Dev
 
-Projeto DesafioDev foi desenvolvido para o teste técnico da Bycoders. 
+The DesafioDev project was developed for the Bycoders technical test.
 
 
 
-
-## Tecnologias
+## Technologies
 
 **Back-end:** .NET 6
 
-**Banco de dados:** SQL Server
+**Database**: SQL Server
 
-## Ferramentas necessárias
+## Necessary tools
 
 **Back-end:** Visual Studio, Docker
 
-**Testes integrados:** Postman
+**Integration tests:** Postman
 
 
-## Funcionalidades
+## Functionalities
 
 - Upload de arquivo
 - Lista com totalizador de saldo
 
 
-## Documentação da API
+## API documentation
 
 #### Upload do arquivo
 
@@ -36,36 +35,40 @@ Projeto DesafioDev foi desenvolvido para o teste técnico da Bycoders.
 | :----------- | :------------------
 
 
-| Parâmetro   | Tipo       | Descrição                           |
+| Parameter   | Type       | Description                           |
 | :---------- | :--------- | :---------------------------------- |
-| `file` | `IFormFile` | **Obrigatório**. Arquivo que será enviado. |
+| `file` | `IFormFile` | **Mandatory**. File to be uploaded. |
 
-#### Lista Estabelecimento com totalizador
+#### Establishment list with totalizer
 
 ```http
   GET /api/establishment
 ```
+
+
 ## Debug
 
-- Para executar a aplicação localmente crie um database localmente e insira a connection string no "appsettings.Development.json" .
+- To run the app locally, create a database locally and enter the connection string in "appsettings.Development.json".
 
-Obs: Ao executar o projeto a migration será executada automáticamente criando as tabelas em sua database.
-
-## Instalação
-
-- Clone o projeto para sua máquina em seu local de preferência.
-
-- Com o Docker instalado em sua máquina, navegue até a raiz do seu projeto pelo terminal. 
-
-- Na raiz do projeto execute o seguinte comando "docker-compose up -d".
-
-- Quando o processo concluir acesse a rota "http://localhost:8001/health" para conferir se o serviço foi iniciado.
-
-Obs: através do docker compose, será feito o download da imagem e configurado o container, tanto do .net quanto do SQL Server, irá criar o banco de dados e ao executar a aplicação automaticamente executará a migration, com isso toda nossa aplicação estará pronta para uso.
+Note: When running the project, the migration will run automatically, creating the tables in your database.
 
 
-## Testes Integrados
+## Deploy for Docker
 
-- Abra o Postman.
-- Importe a configuração salva no diretório do projeto (integration-test).
-- Execute a colletion para obter o resultado dos testes.
+- Clone the project to your machine in your preferred location.
+
+- With Docker installed on your machine, navigate to the root of your project using the terminal.
+
+- In the root of the project run the following command "docker-compose up -d".
+
+- When the process completes, access the "http://localhost:8001/health" route to check if the service has started.
+
+Note: through docker compose, the image will be downloaded and the container configured, both .net and SQL Server, will create the database and when running the application it will automatically run the migration, with that our entire application will be ready For use.
+
+
+
+## Integration Tests
+
+- Open Postman.
+- Import the configuration saved in the project directory (integration-test).
+- Run the collection to get the test results.
