@@ -1,0 +1,210 @@
+{
+	"info": {
+		"_postman_id": "1b4f2854-78d4-42bb-89e6-ca6f96bad092",
+		"name": "Desafio Dev",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "01 - Establishment_GetAll_Not_Found",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Establishment Get All Not Found\", function () {\r",
+							"    pm.response.to.have.status(404);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url-localhost}}/api/establishment",
+					"host": [
+						"{{url-localhost}}"
+					],
+					"path": [
+						"api",
+						"establishment"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "2 - Upload_Success",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const result = {\r",
+							"    \"success\": true,\r",
+							"    \"data\": \"Upload realizado com sucesso!\",\r",
+							"    \"errors\": null\r",
+							"}\r",
+							"\r",
+							"pm.test(\"Upload Success\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"\r",
+							"    pm.response.to.be.json;\r",
+							"\r",
+							"    let json = pm.response.json();\r",
+							"\r",
+							"    pm.expect(json).is.to.eql(result)\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "CNAB.txt"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url-localhost}}/api/file/upload",
+					"host": [
+						"{{url-localhost}}"
+					],
+					"path": [
+						"api",
+						"file",
+						"upload"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "3 - Upload_Bad_Request",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const result = {\r",
+							"    \"success\": false,\r",
+							"    \"data\": null,\r",
+							"    \"errors\": [\r",
+							"        {\r",
+							"            \"message\": \"Ocorreu uma falha ao ler o aquivo, verifique o padrão do documento enviado e tente novamente.\"\r",
+							"        }\r",
+							"    ]\r",
+							"}\r",
+							"\r",
+							"pm.test(\"Upload Bad Request\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"\r",
+							"    pm.response.to.be.json;\r",
+							"\r",
+							"    let json = pm.response.json();\r",
+							"\r",
+							"    pm.expect(json).is.to.eql(result)\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "CNAB2.txt"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url-localhost}}/api/file/upload",
+					"host": [
+						"{{url-localhost}}"
+					],
+					"path": [
+						"api",
+						"file",
+						"upload"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "04 - Establishment_GetAll_Success",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Establishment Get All Success\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url-localhost}}/api/establishment",
+					"host": [
+						"{{url-localhost}}"
+					],
+					"path": [
+						"api",
+						"establishment"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
