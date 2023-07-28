@@ -11,7 +11,12 @@ public static class DependencyInjection
 {
     public static IServiceCollection AddRepositories(this IServiceCollection services, IConfiguration configuration)
     {
-        services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
+        var dbHost = Environment.GetEnvironmentVariable("DB_HOST");
+        var dbName = Environment.GetEnvironmentVariable("DB_NAME");
+        var dbSaPassword = Environment.GetEnvironmentVariable("DB_SA_PASSWORD");
+        var connectionString = $"Data Source={dbHost};Initial Catalog={dbName}; User ID=sa;Password={dbSaPassword};TrustServerCertificate=True";
+
+        services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(connectionString));
         services.AddTransient<IUnitOfWork, UnitOfWork>();
         services.AddTransient<IEstablishmentRepository, EstablishmentRepository>();
         return services;
