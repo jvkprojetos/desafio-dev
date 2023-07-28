@@ -53,10 +53,14 @@ internal class FileServices : IFileServices
         string line;
         List<string> lines = new();
 
-        using var streamReader = new StreamReader(formFile.OpenReadStream());
-        while ((line = streamReader.ReadLine()) is not null)
+        if (formFile.ContentType == "text/plain")
         {
-            lines.Add(line);
+
+            using var streamReader = new StreamReader(formFile.OpenReadStream());
+            while ((line = streamReader.ReadLine()) is not null)
+            {
+                lines.Add(line);
+            }
         }
 
         return lines;
@@ -69,9 +73,9 @@ internal class FileServices : IFileServices
 
     private static TransactionType GetTransactionType(string line)
     {
-       var type = line[0..1];
-       var convertedInInt = Convert.ToInt16(type);
-       return (TransactionType)convertedInInt;
+        var type = line[0..1];
+        var convertedInInt = Convert.ToInt16(type);
+        return (TransactionType)convertedInInt;
     }
 
     private static DateTime GetDate(string line)
@@ -92,7 +96,7 @@ internal class FileServices : IFileServices
         var cpf = line[19..30];
         return cpf;
     }
-    
+
     private static string GetCard(string line)
     {
         var card = line[30..42];
