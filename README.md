@@ -21,7 +21,7 @@ The DesafioDev project was developed for the Bycoders technical test.
 ## Functionalities
 
 - Upload de arquivo
-- Lista com totalizador de saldo
+- List with balance totalizer
 
 
 ## API documentation
