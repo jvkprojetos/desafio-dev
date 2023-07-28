@@ -2,19 +2,16 @@
 using DesafioDev.Domain.Entities;
 using FluentAssertions;
 using Microsoft.AspNetCore.Http;
-using Moq;
 using System.Collections.ObjectModel;
 
 namespace DesafioDev.Tests.Application.Services
 {
     public class FileServicesTests
     {
-        readonly new Mock<IFormFile> _formFile;
         readonly FileServices _fileServices;
 
         public FileServicesTests()
         {
-            _formFile = new Mock<IFormFile>();
             _fileServices = new FileServices();
         }
 
