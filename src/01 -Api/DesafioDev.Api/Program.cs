@@ -23,7 +23,7 @@ builder.Services.AddSwaggerGen(c =>
             Name = "João Vitor",
             Email = "jvkprojetos@outlook.com"
         },
-        Description = "DesafioDev: para integrar seu sistema com nossa api, siga o guia de end-points abaixo, nele consta o tipo, corpo da requisição, tipos de retorno e tipo de dado esperado na operação."
+        Description = "DevChallenge: to integrate your system with our api, follow the end-points guide below, which contains the type, request body, return types and type of data expected in the operation."
     });
     c.EnableAnnotations();
 });
