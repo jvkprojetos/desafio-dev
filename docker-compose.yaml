@@ -5,7 +5,7 @@ networks:
  
 services:
   desafiodevdb:
-    container_name: desafiodev-db
+    container_name: desafio-dev-db
     image: mcr.microsoft.com/mssql/server:2019-latest
     ports:
       - 8002:1433

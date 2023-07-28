@@ -10,6 +10,8 @@ builder.Services.AddApplication().AddRepositories(builder.Configuration);
 
 builder.Services.AddEndpointsApiExplorer();
 
+builder.Services.AddHealthChecks();
+
 builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new OpenApiInfo
@@ -32,6 +34,11 @@ if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
+}
+
+if (app.Environment.IsProduction()) 
+{
+    app.UseHealthChecks("/health");
 }
 
 app.UseHttpsRedirection();

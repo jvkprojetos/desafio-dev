@@ -6,47 +6,7 @@
 	},
 	"item": [
 		{
-			"name": "01 - Establishment_GetAll_Not_Found",
-			"event": [
-				{
-					"listen": "prerequest",
-					"script": {
-						"exec": [
-							""
-						],
-						"type": "text/javascript"
-					}
-				},
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test(\"Establishment Get All Not Found\", function () {\r",
-							"    pm.response.to.have.status(404);\r",
-							"});"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{url-localhost}}/api/establishment",
-					"host": [
-						"{{url-localhost}}"
-					],
-					"path": [
-						"api",
-						"establishment"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "2 - Upload_Success",
+			"name": "1  - Upload_Success",
 			"event": [
 				{
 					"listen": "prerequest",
@@ -95,10 +55,12 @@
 					]
 				},
 				"url": {
-					"raw": "{{url-localhost}}/api/file/upload",
+					"raw": "https://localhost:8001/api/file/upload",
+					"protocol": "https",
 					"host": [
-						"{{url-localhost}}"
+						"localhost"
 					],
+					"port": "8001",
 					"path": [
 						"api",
 						"file",
@@ -109,7 +71,7 @@
 			"response": []
 		},
 		{
-			"name": "3 - Upload_Bad_Request",
+			"name": "2 - Upload_Bad_Request",
 			"event": [
 				{
 					"listen": "test",
@@ -153,10 +115,12 @@
 					]
 				},
 				"url": {
-					"raw": "{{url-localhost}}/api/file/upload",
+					"raw": "https://localhost:8001/api/file/upload",
+					"protocol": "https",
 					"host": [
-						"{{url-localhost}}"
+						"localhost"
 					],
+					"port": "8001",
 					"path": [
 						"api",
 						"file",
@@ -167,7 +131,7 @@
 			"response": []
 		},
 		{
-			"name": "04 - Establishment_GetAll_Success",
+			"name": "3 - Establishment_GetAll_Success",
 			"event": [
 				{
 					"listen": "prerequest",
@@ -194,10 +158,12 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{url-localhost}}/api/establishment",
+					"raw": "https://localhost:8001/api/establishment",
+					"protocol": "https",
 					"host": [
-						"{{url-localhost}}"
+						"localhost"
 					],
+					"port": "8001",
 					"path": [
 						"api",
 						"establishment"

@@ -14,7 +14,9 @@ public static class DependencyInjection
         var dbHost = Environment.GetEnvironmentVariable("DB_HOST");
         var dbName = Environment.GetEnvironmentVariable("DB_NAME");
         var dbSaPassword = Environment.GetEnvironmentVariable("DB_SA_PASSWORD");
-        var connectionString = $"Data Source={dbHost};Initial Catalog={dbName}; User ID=sa;Password={dbSaPassword};TrustServerCertificate=True";
+        var connectionString = configuration.GetSection("Environment")?.Value != "Development" 
+            ? $"Data Source={dbHost};Initial Catalog={dbName}; User ID=sa;Password={dbSaPassword};TrustServerCertificate=True"
+            : configuration.GetConnectionString("DefaultConnection");
 
         services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(connectionString));
         services.AddTransient<IUnitOfWork, UnitOfWork>();
