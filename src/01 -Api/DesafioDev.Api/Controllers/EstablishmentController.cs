@@ -1,6 +1,9 @@
-﻿using DesafioDev.Application.Features.Establishment;
+﻿using DesafioDev.Api.Documentation;
+using DesafioDev.Application.Features.Establishment;
+using DesafioDev.Application.Response;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using Swashbuckle.AspNetCore.Annotations;
 
 namespace DesafioDev.Api.Controllers;
 
@@ -16,6 +19,11 @@ public class EstablishmentController : ControllerBase
     }
 
     [HttpGet]
+    [Produces("application/json")]
+    [SwaggerOperation(Summary = EstablishmentControllerDocumentation.Summary, Description = EstablishmentControllerDocumentation.Description)]
+    [ProducesResponseType(typeof(IEnumerable<EstablishmentQueryResponse>), StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    [ProducesResponseType(StatusCodes.Status500InternalServerError)]
     public async Task<IActionResult> GetAll()
     {
         try

@@ -1,8 +1,11 @@
 ﻿using AutoMapper;
+using DesafioDev.Api.Documentation;
 using DesafioDev.Application.Features.File;
 using DesafioDev.Application.Requests;
+using DesafioDev.Application.Response;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using Swashbuckle.AspNetCore.Annotations;
 
 namespace DesafioDev.Api.Controllers;
 
@@ -21,6 +24,11 @@ public class FileController : ControllerBase
 
     [HttpPost("upload")]
     [Consumes("multipart/form-data")]
+    [Produces("application/json")]
+    [SwaggerOperation(FileControllerDocumentation.Summary, FileControllerDocumentation.Description)]
+    [ProducesResponseType(typeof(BaseResponse<string>), StatusCodes.Status200OK)]
+    [ProducesResponseType(typeof(BaseResponse<string>), StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(StatusCodes.Status500InternalServerError)]
     public async Task<IActionResult> Upload([FromForm] UploadFileRequest uploadFileRequest)
     {
         try
