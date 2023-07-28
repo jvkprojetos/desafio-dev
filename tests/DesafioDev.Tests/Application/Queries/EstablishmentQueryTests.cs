@@ -1,7 +1,6 @@
 ﻿using Bogus;
 using Bogus.Extensions.Brazil;
 using DesafioDev.Application.Features.Establishment;
-using DesafioDev.Application.Response;
 using DesafioDev.Domain.Entities;
 using DesafioDev.Domain.Enums;
 using DesafioDev.Domain.Repositories;

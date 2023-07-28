@@ -2,6 +2,7 @@
 using DesafioDev.Domain.Entities;
 using DesafioDev.Domain.Enums;
 using Microsoft.AspNetCore.Http;
+using System.Collections.ObjectModel;
 using System.Globalization;
 
 namespace DesafioDev.Application.Services;
@@ -12,13 +13,14 @@ internal class FileServices : IFileServices
     {
         var lines = ReadAndConvertInListString(formFile);
 
-        ICollection<Establishment> establishments = new List<Establishment>();
+        ICollection<Establishment> establishments = new Collection<Establishment>();
 
         foreach (var line in lines)
         {
             bool validateLines = GetInvalidLine(line);
             if (!validateLines)
             {
+                establishments.Clear();
                 break;
             }
 
