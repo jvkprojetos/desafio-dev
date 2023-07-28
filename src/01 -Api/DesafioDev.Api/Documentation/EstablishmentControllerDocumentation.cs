@@ -2,7 +2,7 @@
 {
     public class EstablishmentControllerDocumentation
     {
-        public const string Summary = "Obter lista de estabelecimentos.";
-        public const string Description = "Obtém a lista de todos os estabelecimentos, com o valor de saldo que entrou, que saiu e o totalizador do saldo disponivel";
+        public const string Summary = "Get list of establishments.";
+        public const string Description = "Gets the list of all the establishments, with the amount of balance that came in, that went out and the total amount of the available balance";
     }
 }
